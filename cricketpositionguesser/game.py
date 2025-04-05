@@ -19,8 +19,7 @@ class Game:
     
     def calculate_distance_rating(self):
         # Get the position to guess and the guess     
-        distance_of_guess = self.position_to_guess.distance_to(self.guessed_position)   
-        return self.cricket_position_selector.rate_distance(distance_of_guess)
+        return self.cricket_position_selector.rate_distance(self.position_to_guess, self.guessed_position)
     
     def get_result(self):
         if self.position_to_guess.name == self.guess:

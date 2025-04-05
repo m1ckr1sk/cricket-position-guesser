@@ -14,7 +14,7 @@
         },
         {
             "name": "Python: Behave current file",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "module": "behave",
             "console": "integratedTerminal",
