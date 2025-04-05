@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cricket-position-guesser"
+requires-python = ">= 3.8"
+version = "2025.4.5"
+dependencies = [
+"behave >= 1.2.6",
+"pytest >= 7.4.0", "pytest-cov >= 4.1.0", "pytest-mock >= 3.10.0"
+]
+authors = [
+  {name = "Flying Mick Risk"}
+]
+maintainers = [
+  {name = "Flying Mick Risk"}
+]
+description = "Cricket Position Guesser"
+readme = "README.md"
+license = "GNU"
+license-files = ["LICEN[CS]E.*"]
+keywords = ["cricket", "guesser"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Homepage = "https://github.com/m1ckr1sk/cricket-position-guesser"
+Documentation = "https://github.com/m1ckr1sk/cricket-position-guesser/README.md"
+Repository = "https://github.com/m1ckr1sk/cricket-position-guesser"
+"Bug Tracker" = "https://github.com/m1ckr1sk/cricket-position-guesser"
+Changelog = "https://github.com/m1ckr1sk/cricket-position-guesser/CHANGELOG.md"
