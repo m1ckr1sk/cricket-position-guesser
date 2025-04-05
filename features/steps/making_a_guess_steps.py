@@ -17,3 +17,11 @@ def return_result(context):
 @then(u'its rating based on distance to correct position')
 def return_rating(context):
     assert context.result.distance_rating == 5, "The rating should be based on the distance to the correct position"
+
+@when(u'we make a correct guess')
+def step_impl(context):
+    context.result = context.game.make_guess("mid-on")
+
+@then(u'we should return the correct position')
+def step_impl(context):
+    assert context.result.status == "correct", "The guess should return correct"

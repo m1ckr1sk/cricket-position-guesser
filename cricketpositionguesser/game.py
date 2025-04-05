@@ -4,11 +4,11 @@ class Game:
 
     def __init__(self, cricket_position_selector):
         self.position_to_guess = cricket_position_selector.get_position()
-        self.incorrect_guess = None
+        self.guess = None
         self.distance_rating = None
 
     def make_guess(self, guess):
-        self.incorrect_guess = guess
+        self.guess = guess
         self.distance_rating = self.calculate_distance_rating()
         return self.get_result()
     
@@ -18,4 +18,7 @@ class Game:
         return 5
     
     def get_result(self):
-        return Result(self.incorrect_guess, "incorrect", self.distance_rating)
+        if self.position_to_guess == self.guess:
+            return Result(self.guess, "correct", 0)
+        else:
+            return Result(self.guess, "incorrect", self.distance_rating)
