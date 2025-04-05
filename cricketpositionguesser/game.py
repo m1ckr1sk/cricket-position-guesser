@@ -3,22 +3,26 @@ from cricketpositionguesser.guess_result import Result
 class Game:
 
     def __init__(self, cricket_position_selector):
-        self.position_to_guess = cricket_position_selector.get_position()
+        self.cricket_position_selector = cricket_position_selector
+        self.position_to_guess = cricket_position_selector.get_position_to_guess()
         self.guess = None
         self.distance_rating = None
 
     def make_guess(self, guess):
         self.guess = guess
-        self.distance_rating = self.calculate_distance_rating()
-        return self.get_result()
+        if self.cricket_position_selector.is_valid_position(guess):
+            self.guessed_position = self.cricket_position_selector.get_position(guess)
+            self.distance_rating = self.calculate_distance_rating()
+            return self.get_result()
+        else:
+            return Result(guess, f"Position '{guess}' not found.", None)
     
     def calculate_distance_rating(self):
-        # Placeholder for distance calculation logic
-        # For now, we will just return a fixed value for demonstration purposes
-        return 5
+        # Get the position to guess and the guess     
+        return self.cricket_position_selector.rate_distance(self.position_to_guess, self.guessed_position)
     
     def get_result(self):
-        if self.position_to_guess == self.guess:
+        if self.position_to_guess.name == self.guess:
             return Result(self.guess, "correct", 0)
         else:
             return Result(self.guess, "incorrect", self.distance_rating)
