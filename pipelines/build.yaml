@@ -16,5 +16,10 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    behave
+    behave --junit
   displayName: 'Run Behave tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/TESTS-*.xml'
+    testRunTitle: 'Behave Test Results'
