@@ -50,6 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+TESTS*.xml
 
 # Translations
 *.mo
@@ -172,3 +173,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+reports/TESTS-making_a_guess.xml
