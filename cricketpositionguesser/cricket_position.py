@@ -1,11 +1,12 @@
 from .polar_coordinate import PolarCoordinate
 
+
 class CricketPosition:
     """
     A class representing a cricket fielding position using polar coordinates.
     """
 
-    def __init__(self, name: str, coordinate: 'PolarCoordinate'):
+    def __init__(self, name: str, coordinate: "PolarCoordinate"):
         """
         Initialize a CricketPosition instance.
 
@@ -15,7 +16,7 @@ class CricketPosition:
         self.name = name
         self.coordinate = coordinate
 
-    def distance_to(self, other: 'CricketPosition') -> float:
+    def distance_to(self, other: "CricketPosition") -> float:
         """
         Calculate the distance to another CricketPosition.
 

@@ -1,6 +1,7 @@
 import math
 from .cartesian_coordinate import CartesianCoordinate
 
+
 class PolarCoordinate:
 
     def __init__(self, distance: float, angle: float):
@@ -17,13 +18,14 @@ class PolarCoordinate:
         """
         Convert polar coordinates to Cartesian coordinates.
 
-        :return: A CartesianCoordinate representing the Cartesian coordinates (x, y).
+        :return: A CartesianCoordinate representing the Cartesian
+        coordinates (x, y).
         """
         x = self.distance * math.cos(math.radians(self.angle))
         y = self.distance * math.sin(math.radians(self.angle))
         return CartesianCoordinate(x, y)
-    
-    def distance_to(self, other: 'PolarCoordinate') -> float:
+
+    def distance_to(self, other: "PolarCoordinate") -> float:
         """
         Calculate the distance to another PolarCoordinate.
 
@@ -32,4 +34,7 @@ class PolarCoordinate:
         """
         cartesian_self = self.to_cartesian()
         cartesian_other = other.to_cartesian()
-        return math.sqrt((cartesian_self.x - cartesian_other.x) ** 2 + (cartesian_self.y - cartesian_other.y) ** 2)
+        return math.sqrt(
+            (cartesian_self.x - cartesian_other.x) ** 2
+            + (cartesian_self.y - cartesian_other.y) ** 2
+        )
