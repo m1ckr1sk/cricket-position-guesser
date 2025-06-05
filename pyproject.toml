@@ -2,13 +2,19 @@
 requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+packages = ["cricketpositionguesser", "api"]
+
 [project]
 name = "cricket-position-guesser"
 requires-python = ">= 3.8"
 version = "2025.4.5"
 dependencies = [
 "behave >= 1.2.6",
-"pytest >= 7.4.0", "pytest-cov >= 4.1.0", "pytest-mock >= 3.10.0"
+"pytest >= 7.4.0", "pytest-cov >= 4.1.0", "pytest-mock >= 3.10.0",
+"fastapi[standard] >= 0.103.0",
+"pydantic >= 2.8.0",
+"uvicorn >= 0.29.0",
 ]
 authors = [
   {name = "Flying Mick Risk"}
@@ -18,8 +24,8 @@ maintainers = [
 ]
 description = "Cricket Position Guesser"
 readme = "README.md"
-license = "GNU"
-license-files = ["LICEN[CS]E.*"]
+license = "GPL-3.0-only"
+# license-files = ["LICEN[CS]E.*"]
 keywords = ["cricket", "guesser"]
 classifiers = [
   "Development Status :: 4 - Beta",

@@ -1,8 +1,11 @@
 class PositionSelector:
 
-    def __init__(self, position_name, positions):
-        self.position = positions.get_position(position_name)
+    def __init__(self, positions, position_name=None):
         self.positions = positions
+        if position_name is not None:
+            self.position = positions.get_position(position_name)
+        else:
+            self.position = positions.get_random_position()
 
     def get_position_to_guess(self):
         return self.position

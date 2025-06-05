@@ -1,5 +1,6 @@
 from .polar_coordinate import PolarCoordinate
 from .cricket_position import CricketPosition
+import random
 
 
 class CricketPositions:
@@ -30,9 +31,7 @@ class CricketPositions:
             CricketPosition("deep square leg", PolarCoordinate(0.99, 80.0)),
             CricketPosition("square leg", PolarCoordinate(0.45, 80.0)),
             CricketPosition("long leg", PolarCoordinate(0.99, 50.0)),
-            CricketPosition(
-                "backward square leg", PolarCoordinate(0.45, 50.0)
-            ),
+            CricketPosition("backward square leg", PolarCoordinate(0.45, 50.0)),
             CricketPosition("deep fine leg", PolarCoordinate(0.99, 35.0)),
             CricketPosition("short fine leg", PolarCoordinate(0.45, 35.0)),
             CricketPosition("long stop", PolarCoordinate(0.99, 0.0)),
@@ -57,10 +56,7 @@ class CricketPositions:
         :param position_name: The name of the cricket position.
         :return: True if the position name is valid, False otherwise.
         """
-        return any(
-            position.name == position_name
-            for position in self.positions
-        )
+        return any(position.name == position_name for position in self.positions)
 
     def get_position(self, position_name: str) -> CricketPosition:
         """
@@ -73,6 +69,14 @@ class CricketPositions:
             if position.name == position_name:
                 return position
         raise ValueError(f"Position '{position_name}' not found.")
+
+    def get_random_position(self) -> CricketPosition:
+        """
+        Get a random CricketPosition from the list of positions.
+
+        :return: A random CricketPosition instance.
+        """
+        return random.choice(self.positions)
 
     def calculate_maximum_distance(self) -> float:
         """
