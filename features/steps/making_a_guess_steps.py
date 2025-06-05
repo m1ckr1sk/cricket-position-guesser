@@ -7,14 +7,17 @@ from behave import given, when, then
 @given("we have identified a position")
 def identify_a_position_to_guess(context):
     cricket_positions = CricketPositions()
-    cricket_position_selector = PositionSelector("mid on", cricket_positions)
+    cricket_position_selector = PositionSelector(
+        positions=cricket_positions, position_name="mid on"
+    )
     context.game = Game(cricket_position_selector)
 
 
 @given('we have identified a position of "{position_name}"')
 def step_impl(context, position_name):
     cricket_positions = CricketPositions()
-    cricket_position_selector = PositionSelector(position_name, cricket_positions)
+    cricket_position_selector = PositionSelector(
+        positions=cricket_positions, position_name=position_name)
     context.game = Game(cricket_position_selector)
 
 
